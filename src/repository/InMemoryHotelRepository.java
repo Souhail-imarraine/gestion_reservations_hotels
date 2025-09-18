@@ -4,16 +4,35 @@ import domain.Hotel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InMemoryHotelRepository {
+// In-memory implementation of HotelRepository
+public class InMemoryHotelRepository implements HotelRepository {
     private List<Hotel> hotels = new ArrayList<>();
 
-    public InMemoryHotelRepository() {
-        hotels.add(new Hotel(1, "Hotel Atlas", "Casablanca Ain diabe", 4));
-        hotels.add(new Hotel(2, "Hotel Sahara", "Marrakech", 5));
-        hotels.add(new Hotel(3, "Hotel Rif", "Tanger", 4));
+    @Override
+    public void save(Hotel hotel) {
+        Hotel existing = findById(hotel.getHotelId());
+        if (existing != null) {
+            hotels.remove(existing);
+        }
+        hotels.add(hotel);
     }
 
+    @Override
+    public Hotel findById(String hotelId) {
+        for (Hotel h : hotels) {
+            if (h.getHotelId().equals(hotelId)) return h;
+        }
+        return null;
+    }
+
+    @Override
     public List<Hotel> findAll() {
-        return hotels;
+        return new ArrayList<>(hotels);
+    }
+
+    @Override
+    public void delete(String hotelId) {
+        Hotel h = findById(hotelId);
+        if (h != null) hotels.remove(h);
     }
 }
