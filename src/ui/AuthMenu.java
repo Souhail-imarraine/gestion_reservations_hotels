@@ -28,12 +28,12 @@ public class AuthMenu {
     }
 
 
+
     public void showLogin() {
-        Scanner input = new Scanner(System.in);
         System.out.print("Email: ");
-        String email = input.nextLine();
+        String email = scanner.nextLine();
         System.out.print("Mot de passe: ");
-        String password = input.nextLine();
+        String password = scanner.nextLine();
 
         boolean success = authService.login(email, password);
         if (success) {
