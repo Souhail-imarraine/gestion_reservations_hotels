@@ -38,6 +38,8 @@ public class AuthMenu {
         boolean success = authService.login(email, password);
         if (success) {
             System.out.println("Connexion reussie !");
+            HotelMenu hotelMenu = new HotelMenu();
+            hotelMenu.showMenu();
         } else {
             System.out.println("Email ou mot de passe incorrect.");
         }

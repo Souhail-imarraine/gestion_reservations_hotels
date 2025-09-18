@@ -14,7 +14,7 @@ public class AuthService {
         if(fullName.trim().isEmpty() || fullName.length() < 6){
             return "full Name is required.";
         }
-
+        
         if (email == null || email.trim().isEmpty()) {
             return "Email is required.";
         }
