@@ -11,6 +11,10 @@ public class AuthService {
     }
 
     public String register(String fullName, String email, String password) {
+        if(fullName.trim().isEmpty() || fullName.length() < 6){
+            return "full Name is required.";
+        }
+
         if (email == null || email.trim().isEmpty()) {
             return "Email is required.";
         }
@@ -25,7 +29,6 @@ public class AuthService {
 
         Client client = new Client(fullName, email, password);
         clientRepo.save(client);
-
         return "Registration successful!";
     }
 
