@@ -5,10 +5,10 @@ import java.util.UUID;
 
 // Represents a reservation made by a client for a hotel
 public class Reservation {
-    private UUID id;             
-    private Instant timestamp;   
-    private String hotelId;      
-    private UUID clientId;       
+    private UUID id;
+    private Instant timestamp;
+    private String hotelId;
+    private UUID clientId;
     private int nights;          // Number of nights reserved
 
     // Constructor
@@ -21,11 +21,25 @@ public class Reservation {
     }
 
     // Getters
-    public UUID getId() { return id; }
-    public Instant getTimestamp() { return timestamp; }
-    public String getHotelId() { return hotelId; }
-    public UUID getClientId() { return clientId; }
-    public int getNights() { return nights; }
+    public UUID getId() {
+        return id;
+    }
+
+    public Instant getTimestamp() {
+        return timestamp;
+    }
+
+    public String getHotelId() {
+        return hotelId;
+    }
+
+    public UUID getClientId() {
+        return clientId;
+    }
+
+    public int getNights() {
+        return nights;
+    }
 
     @Override
     public String toString() {

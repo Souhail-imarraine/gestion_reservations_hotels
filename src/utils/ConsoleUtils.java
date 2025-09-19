@@ -25,7 +25,7 @@ public class ConsoleUtils {
                 value = Integer.parseInt(scanner.nextLine());
                 if (value >= min) return value;
             } catch (NumberFormatException e) {
-                
+
             }
             System.out.println("Veuillez entrer un nombre >= " + min);
         }

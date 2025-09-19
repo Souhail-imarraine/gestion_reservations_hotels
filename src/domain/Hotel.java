@@ -18,17 +18,42 @@ public class Hotel {
     }
 
     // Getters
-    public String getHotelId() { return hotelId; }
-    public String getName() { return name; }
-    public String getAddress() { return address; }
-    public int getAvailableRooms() { return availableRooms; }
-    public double getRating() { return rating; }
+    public String getHotelId() {
+        return hotelId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public int getAvailableRooms() {
+        return availableRooms;
+    }
+
+    public double getRating() {
+        return rating;
+    }
 
     // Setters for hotel update
-    public void setName(String name) { this.name = name; }
-    public void setAddress(String address) { this.address = address; }
-    public void setAvailableRooms(int rooms) { this.availableRooms = rooms; }
-    public void setRating(double rating) { this.rating = rating; }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setAvailableRooms(int rooms) {
+        this.availableRooms = rooms;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 
     @Override
     public String toString() {

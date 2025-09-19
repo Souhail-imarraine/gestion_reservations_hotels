@@ -4,6 +4,7 @@ import domain.Reservation;
 import domain.Hotel;
 import repository.ReservationRepository;
 import repository.HotelRepository;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -32,14 +33,14 @@ public class ReservationService {
         Reservation reservation = new Reservation(hotelId, clientId, nights);
         reservationRepo.save(reservation);
 
-        return "Réservation effectuée.";
+        return "Reservation effectuee.";
     }
 
     // Cancel a reservation (returns message)
     public String cancelReservation(UUID reservationId, UUID clientId) {
         Reservation reservation = reservationRepo.findById(reservationId);
-        if (reservation == null) return "Réservation introuvable.";
-        if (!reservation.getClientId().equals(clientId)) return "Vous ne pouvez annuler que vos propres réservations.";
+        if (reservation == null) return "Reservation introuvable.";
+        if (!reservation.getClientId().equals(clientId)) return "Vous ne pouvez annuler que vos propres reservations.";
 
         // Increment available rooms
         Hotel hotel = hotelRepo.findById(reservation.getHotelId());
@@ -49,7 +50,7 @@ public class ReservationService {
         }
 
         reservationRepo.delete(reservationId);
-        return "Réservation annulée.";
+        return "Reservation annulee.";
     }
 
     // Get reservation history for a client (sorted by date)

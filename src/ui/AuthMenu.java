@@ -28,7 +28,6 @@ public class AuthMenu {
     }
 
 
-
     public void showLogin() {
         System.out.print("Email: ");
         String email = scanner.nextLine();

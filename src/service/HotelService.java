@@ -16,31 +16,31 @@ public class HotelService {
 
     // Create a new hotel (returns message)
     public String createHotel(String hotelId, String name, String address, int rooms, double rating) {
-        if (hotelRepo.findById(hotelId) != null) return "Identifiant déjà utilisé.";
+        if (hotelRepo.findById(hotelId) != null) return "Identifiant deja utilise.";
         if (rooms <= 0) return "Nombre de chambres invalide.";
         Hotel hotel = new Hotel(hotelId, name, address, rooms, rating);
         hotelRepo.save(hotel);
-        return "Hôtel créé.";
+        return "Hotel cree.";
     }
 
     // Update hotel info (returns message)
     public String updateHotel(String hotelId, String name, String address, int rooms) {
         Hotel hotel = hotelRepo.findById(hotelId);
-        if (hotel == null) return "Hôtel introuvable.";
+        if (hotel == null) return "Hotel introuvable.";
         if (rooms <= 0) return "Nombre de chambres invalide.";
         hotel.setName(name);
         hotel.setAddress(address);
         hotel.setAvailableRooms(rooms);
         hotelRepo.save(hotel);
-        return "Hôtel mis à jour.";
+        return "Hotel mis a jour.";
     }
 
     // Delete hotel (only if no reservations)
     public String deleteHotel(String hotelId) {
         if (!reservationRepo.findByHotelId(hotelId).isEmpty())
-            return "Suppression impossible : réservations en cours.";
+            return "Suppression impossible : reservations en cours.";
         hotelRepo.delete(hotelId);
-        return "Hôtel supprimé.";
+        return "Hotel supprime.";
     }
 
     // List all hotels
